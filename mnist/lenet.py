@@ -1,3 +1,4 @@
+#!env python3 -O
 # -*- encoding: utf-8 -*-
 
 """
@@ -26,7 +27,7 @@ def train(dir, output, batch_size=128, epochs=20):
 
     # build up a 2D convolution network
     lenet = keras.models.Sequential()
-    lenet.add(keras.layers.Conv2D(20, (5, 5), padding='same', activation='relu', input_shape=(1, 28, 28)))
+    lenet.add(keras.layers.Conv2D(20, (5, 5), padding='same', activation='relu', input_shape=(28, 28, 1)))
     lenet.add(keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
     lenet.add(keras.layers.Conv2D(50, (5, 5), padding='same', activation='relu'))
     lenet.add(keras.layers.MaxPooling2D((2, 2)))

@@ -21,7 +21,7 @@ def load_images(fname):
 	with gzip.open(fname) as f:
 		magic, num, rows, cols = struct.unpack('>IIII', f.read(16))
 		images = numpy.fromstring(f.read(), dtype=numpy.uint8)
-		images = images.astype(numpy.float32).reshape(len(images) // rows // cols, 1, rows, cols) / 255
+		images = images.astype(numpy.float32).reshape(len(images) // rows // cols, rows, cols, 1) / 255
 		return images
 
 
